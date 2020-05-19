@@ -1,4 +1,4 @@
-package com.lindeng.basketballmanager.model;
+package com.lindeng.basketballmanager.dto;
 
 import lombok.Getter;
 import lombok.Setter;

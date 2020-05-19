@@ -1,14 +1,17 @@
-package com.lindeng.basketballmanager.model;
+package com.lindeng.basketballmanager.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.commons.lang3.BooleanUtils;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
-/**球馆信息表*/
+/**
+ * 球馆信息表
+ */
 @Table
 @Entity(name = "arena")
 @Getter
@@ -50,13 +53,13 @@ public class Arena {
      * 是否有中央空调
      */
     @Column(name = "center_air_condition")
-    private boolean centerAirCondition;//是否有中央空调
+    private boolean centerAirCondition = false;//是否有中央空调
 
     /**
      * 是否有中央转播电视
      */
     @Column(name = "center_tv")
-    private boolean centerTV; //是否有中央转播电视
+    private boolean centerTV = false; //是否有中央转播电视
 
     /**
      * 球馆的级别，由以上几个boolean计算出来
@@ -68,7 +71,7 @@ public class Arena {
      * 是否有独立训练场
      */
     @Column(name = "training_center")
-    private boolean trainingCenter; // 是否有独立的训练场
+    private boolean trainingCenter = false; // 是否有独立的训练场
 
     /**
      * 是否有主队独立更衣室
@@ -80,7 +83,7 @@ public class Arena {
      * 是否有客队更衣室
      */
     @Column(name = "visitor_locker_room")
-    private boolean visitorsLockerRoom; //是否有独立的客队更衣室
+    private boolean visitorsLockerRoom = false; //是否有独立的客队更衣室
 
     /**
      * 球馆的状态
@@ -104,4 +107,9 @@ public class Arena {
      * 球场的总价值
      */
     private BigDecimal worthValue;
+
+    public int initLevel() {
+        return BooleanUtils.toInteger(this.centerAirCondition) + BooleanUtils.toInteger(this.centerTV) + BooleanUtils.toInteger(this.lockerRoom)
+                + BooleanUtils.toInteger(this.trainingCenter) + BooleanUtils.toInteger(this.visitorsLockerRoom);
+    }
 }

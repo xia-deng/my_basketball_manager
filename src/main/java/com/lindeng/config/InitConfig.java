@@ -15,15 +15,10 @@ public class InitConfig {
 
     @Bean
     public DataSource dataSource() {
-//        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-//        dataSourceBuilder.driverClassName("org.sqlite.JDBC");
-//        dataSourceBuilder.url("jdbc:sqlite:" + "example.db");
-//        dataSourceBuilder.type(SQLiteDataSource.class);
-//        return dataSourceBuilder.build();
-
         HikariDataSource hikariDataSource = new HikariDataSource();
         hikariDataSource.setDriverClassName("org.sqlite.JDBC");
         hikariDataSource.setJdbcUrl(dbPath);
         return hikariDataSource;
     }
+
 }

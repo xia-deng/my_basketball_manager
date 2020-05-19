@@ -1,11 +1,10 @@
-package com.lindeng.basketballmanager.model;
+package com.lindeng.basketballmanager.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**能力信息表*/
 @Table

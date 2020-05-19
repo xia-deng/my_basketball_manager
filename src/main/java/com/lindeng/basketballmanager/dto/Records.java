@@ -1,4 +1,4 @@
-package com.lindeng.basketballmanager.model;
+package com.lindeng.basketballmanager.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,26 +7,25 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
- * 战术信息
+ * 各种记录
  */
 @Table
+@Entity(name = "records")
 @Getter
 @Setter
 @ToString
-@Entity(name = "tactics")
-public class Tactics {
+public class Records {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
-    @Column(length = 128)
     private String name;
 
-    @Column(name = "effect_common")
-    private double effectCommon;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "records_season")
+    private Season season;
 
     @Column(length = 256)
     private String description;
-
 
 }

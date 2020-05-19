@@ -1,4 +1,4 @@
-package com.lindeng.basketballmanager.model;
+package com.lindeng.basketballmanager.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,16 +7,12 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * 场上的位置信息
- */
 @Table
-@Entity(name = "position")
+@Entity(name = "contract_type")
 @Getter
 @Setter
 @ToString
-public class Position {
-
+public class ContractType {
     @Id
     @GeneratedValue
     private int id;
@@ -24,9 +20,6 @@ public class Position {
     @Column(name = "name", nullable = false, length = 128)
     private String name;
 
-    @Column(name = "main_position")
-    private boolean mainPosition;
-
-    @ManyToMany(mappedBy="positions")
-    private Set<Person> personSet;
+    @OneToMany(mappedBy = "contractType")
+    private Set<Contract> contractSet;
 }

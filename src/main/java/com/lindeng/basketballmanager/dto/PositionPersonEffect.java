@@ -1,4 +1,4 @@
-package com.lindeng.basketballmanager.model;
+package com.lindeng.basketballmanager.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +7,11 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Table
-@Entity(name = "tactics_position")
+@Entity(name = "person_positions")
 @Getter
 @Setter
 @ToString
-public class TacticsPositionEffect {
+public class PositionPersonEffect {
 
     @Id
     @GeneratedValue
@@ -19,9 +19,9 @@ public class TacticsPositionEffect {
     @Column(name = "effect_percent")
     private double effectPercent = 1;
     @ManyToOne
-    @JoinColumn(name = "position_id")
+    @JoinColumn(name = "person_id")
     private Person person;
     @ManyToOne
-    @JoinColumn(name = "tactics_id")
-    private Tactics tactics;
+    @JoinColumn(name = "position_id")
+    private Position position;
 }
