@@ -1,0 +1,16 @@
+spring:
+  ### sqlite需要自己配置连接方式
+  jpa:
+    database-platform: com.lindeng.config.SQLiteDialect #自己配置的方言
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  thymeleaf:
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+
+
+basketball:
+  dbPath: "jdbc:sqlite:C://db//basketball.db"
